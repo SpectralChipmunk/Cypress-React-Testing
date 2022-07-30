@@ -1,27 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
 	SimpleGrid,
 } from '@chakra-ui/react';
-import allitems from '../data/items';
 import Item from './item';
-import { fakeAPIService } from '../utils/index';
+import { useQuery } from "react-query";
 
 function Itemlist() {
 	const [items, setItems] = useState([]);
 
-	const getData = () => { setItems(allitems) }
+	async function getData() {
+		const results = await fetch(`http://localhost:3001/allitems`);
+		await results.json().then(data => setItems(data));
+	}
 
-	useEffect(() => {
-		fakeAPIService(2000, getData);
-	}, []);
+	const { isLoading, isError, data, error } = useQuery([items], getData);
+
+	if (isLoading) return <p>Loading...</p>;
 
 	return (
 		<SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }} mt="10">
-			{items && items.map((item) => {
+			{items && items?.map((item) => {
 				return <Item key={item.id} data={item} />;
 			})
 			}
-			{items.length === 0 && <div>Loading...</div>}
 		</SimpleGrid>
 	);
 }
