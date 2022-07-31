@@ -63,6 +63,9 @@ const Cart = () => {
 					<CartList removeItem={event => removeItem(item.id)} key={item.id} image={item.imageURL} name={item.name} price={item.price} />
 				))}</> : <CartEmpty />}
 			</div>
+			{/* {cartItems.length > 0 && <>
+				Total: ${cartItems.reduce((amount, item) => item.price + amount, 0)}
+			</>} */}
 		</PageWrapper>
 	);
 };
