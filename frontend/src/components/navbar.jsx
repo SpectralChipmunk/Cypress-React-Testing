@@ -34,7 +34,9 @@ export default function Nav() {
 		<>
 			<Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
 				<Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-					<Box fontFamily="monospace" fontWeight="bold" fontSize="2xl">					<Link to="/">My Shop</Link></Box>
+					<Box fontFamily="monospace" fontWeight="bold" fontSize="2xl">
+						<Link to="/">Shopperz</Link>
+					</Box>
 					<Flex alignItems={'center'}>
 						<Stack direction={'row'} spacing={7}>
 							<Link to="/cart">
