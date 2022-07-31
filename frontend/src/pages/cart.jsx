@@ -57,9 +57,10 @@ const Cart = () => {
 			>
 				My Cart
 			</Box>
+
 			<div>
 				{cartItems.length > 0 ? <>{cartItems.map((item) => (
-					<CartList removeItem={removeItem(item.id)} key={item.id} image={item.imageURL} name={item.name} price={item.price} />
+					<CartList removeItem={event => removeItem(item.id)} key={item.id} image={item.imageURL} name={item.name} price={item.price} />
 				))}</> : <CartEmpty />}
 			</div>
 		</PageWrapper>
