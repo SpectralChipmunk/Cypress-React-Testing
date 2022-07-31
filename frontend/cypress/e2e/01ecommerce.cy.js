@@ -1,5 +1,5 @@
-describe('Simple test', () => {
-	it('works', () => {
-		expect(true).to.equal(true)
-	})
+describe('Visit the application', () => {
+  it('Visits the app', () => {
+    cy.visit('/')
+  })
 })
