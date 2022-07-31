@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	SimpleGrid,
 } from '@chakra-ui/react';
@@ -12,6 +12,10 @@ function Itemlist() {
 		const results = await fetch(`http://localhost:3001/allitems`);
 		await results.json().then(data => setItems(data));
 	}
+
+	useEffect(() => {
+		getData();
+	}, []);
 
 	const { isLoading, isError, data, error } = useQuery([items], getData);
 

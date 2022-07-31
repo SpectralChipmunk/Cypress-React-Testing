@@ -7,6 +7,8 @@ import {
 	Badge
 } from '@chakra-ui/react';
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../context/CartContext";
 
 const CartIcon = () => {
 	return (
@@ -16,17 +18,18 @@ const CartIcon = () => {
 	)
 }
 
-const CartBadge = () => {
+const CartBadge = ({ items }) => {
 	return (
 		<>
 			<Badge mr='2' colorScheme='red'>
-				0
+				{items}
 			</Badge>
 		</>
 	)
 }
 
 export default function Nav() {
+	const { cartItems } = useContext(CartContext);
 	return (
 		<>
 			<Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -36,7 +39,7 @@ export default function Nav() {
 						<Stack direction={'row'} spacing={7}>
 							<Link to="/cart">
 								<Button>
-									<CartBadge margin="ms-3" />
+									{cartItems.length > 0 ? <CartBadge items={cartItems.length} margin="ms-3" /> : ''}
 									<CartIcon />
 								</Button>
 							</Link>

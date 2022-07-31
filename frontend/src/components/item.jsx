@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
 	Flex,
 	Box,
@@ -5,14 +6,15 @@ import {
 	Badge,
 	useColorModeValue,
 	Icon,
-	chakra,
 	Tooltip,
+	Button,
 } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
-
+import CartContext from "../context/CartContext";
 
 function Item(data) {
 	const { name, price, isNew, imageURL } = data.data;
+	const { addToCart } = useContext(CartContext);
 	return (
 		<>
 			<Box
@@ -49,9 +51,9 @@ function Item(data) {
 							placement={'top'}
 							color={'gray.800'}
 							fontSize={'1.2em'}>
-							<chakra.a href={'#'} display={'flex'}>
+							<Button display={'flex'} onClick={()=> addToCart(data.data)}>
 								<Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-							</chakra.a>
+							</Button>
 						</Tooltip>
 					</Flex>
 
