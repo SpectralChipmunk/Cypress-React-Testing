@@ -51,7 +51,7 @@ function Item(data) {
 							placement={'top'}
 							color={'gray.800'}
 							fontSize={'1.2em'}>
-							<Button display={'flex'} onClick={() => addToCart(data.data)}>
+							<Button display={'flex'} onClick={()=> addToCart(data.data)}>
 								<Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
 							</Button>
 						</Tooltip>
