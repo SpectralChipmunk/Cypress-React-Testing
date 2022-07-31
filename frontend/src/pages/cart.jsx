@@ -42,7 +42,6 @@ const CartEmpty = () => {
 	return (<>Cart is empty</>)
 }
 
-
 const Cart = () => {
 	const { cartItems } = useContext(CartContext);
 	const { removeItem } = useContext(CartContext);
@@ -60,12 +59,9 @@ const Cart = () => {
 			</Box>
 			<div>
 				{cartItems.length > 0 ? <>{cartItems.map((item) => (
-					<CartList removeItem={event => removeItem(item.id)} key={item.id} image={item.imageURL} name={item.name} price={item.price} />
+					<CartList removeItem={removeItem(item.id)} key={item.id} image={item.imageURL} name={item.name} price={item.price} />
 				))}</> : <CartEmpty />}
 			</div>
-			{/* {cartItems.length > 0 && <>
-				Total: ${cartItems.reduce((amount, item) => item.price + amount, 0)}
-			</>} */}
 		</PageWrapper>
 	);
 };
