@@ -1,7 +1,8 @@
 describe('Mock some data', () => {
-	it.only('Check the navbar', () => {
+	it.only('Check the all items api call', () => {
 		// cy.intercept(method, url, staticResponse)
-		cy.intercept('GET', 'http://localhost:3001/allitems', []);
+		const apiEndpoint = Cypress.env('api_server')
+		cy.intercept('GET', apiEndpoint, []);
 		cy.visit('/');
 		cy.get('[data-cy=item-list]').children().should('have.length', 0);
 	})
