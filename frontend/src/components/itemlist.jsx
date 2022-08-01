@@ -22,12 +22,14 @@ function Itemlist() {
 	if (isLoading) return <p>Loading...</p>;
 
 	return (
-		<SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }} mt="10">
-			{items && items?.map((item) => {
-				return <Item key={item.id} data={item} />;
-			})
-			}
-		</SimpleGrid>
+		<>
+			<SimpleGrid data-cy='item-list' columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }} mt="10">
+				{items && items?.map((item) => {
+					return <Item key={item.id} data={item} />;
+				})
+				}
+			</SimpleGrid>
+		</>
 	);
 }
 

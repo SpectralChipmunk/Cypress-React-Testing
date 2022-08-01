@@ -34,14 +34,14 @@ export default function Nav() {
 		<>
 			<Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
 				<Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-					<Box fontFamily="monospace" fontWeight="bold" fontSize="2xl">
+					<Box data-cy='shop-name' fontFamily="monospace" fontWeight="bold" fontSize="2xl">
 						<Link to="/">Shopperz</Link>
 					</Box>
 					<Flex alignItems={'center'}>
 						<Stack direction={'row'} spacing={7}>
 							<Link to="/cart">
 								<Button>
-									{cartItems.length > 0 ? <CartBadge items={cartItems.length} margin="ms-3" /> : ''}
+									{cartItems.length > 0 ? <CartBadge data-cy='shopping-badge' items={cartItems.length} margin="ms-3" /> : ''}
 									<CartIcon />
 								</Button>
 							</Link>
