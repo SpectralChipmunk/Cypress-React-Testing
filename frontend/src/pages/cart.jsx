@@ -4,7 +4,6 @@ import PageWrapper from './wrapper';
 import { Box, Image, IconButton } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 
-
 const CartList = ({ image, name, price, id, removeItem }) => {
 	return (
 		<div data-cy="added-to-cart">

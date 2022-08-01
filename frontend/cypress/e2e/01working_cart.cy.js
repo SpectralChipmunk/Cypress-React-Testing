@@ -8,7 +8,8 @@ describe('Visit the application', () => {
   })
 
   it('Main shop section', () => {
-    cy.get('[data-cy=page-title]').contains('You buy we deliver');
+    const ourMotto = 'You buy we deliver';
+    cy.get('[data-cy=page-title]').contains(ourMotto);
     cy.get('[data-cy=item-list]').children().should('have.length', 5);
     cy.get('[data-cy=item-list] > :nth-child(1) button').click();
     cy.get('[data-cy=item-list] > :nth-child(2) button').click();
@@ -18,6 +19,9 @@ describe('Visit the application', () => {
     cy.get('[data-cy=added-to-cart]').children().should('have.length', 2);
     cy.get('.cart-list > :nth-child(1) button').click();
     cy.get('[data-cy=added-to-cart]').children().should('have.length', 1);
+    cy.get('.cart-list > :nth-child(1) button').click();
+    cy.get('[data-cy=added-to-cart]').children().should('have.length', 0);
+    cy.get('[data-cy=shop-name]').click();
   })
 })
 
