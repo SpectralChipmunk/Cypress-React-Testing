@@ -7,7 +7,7 @@ import { CloseIcon } from '@chakra-ui/icons';
 
 const CartList = ({ image, name, price, id, removeItem }) => {
 	return (
-		<>
+		<div data-cy="added-to-cart">
 			<Box display='flex' alignItems='center' justifyContent='space-between' mb="10">
 				<Box display='flex' alignItems='center'>
 					<Box mr="5">
@@ -34,12 +34,12 @@ const CartList = ({ image, name, price, id, removeItem }) => {
 					/>
 				</Box>
 			</Box>
-		</>
+		</div>
 	)
 }
 
 const CartEmpty = () => {
-	return (<>Cart is empty</>)
+	return (<Box id="is-empty">Cart is empty</Box>)
 }
 
 const Cart = () => {
@@ -58,7 +58,7 @@ const Cart = () => {
 				My Cart
 			</Box>
 
-			<div>
+			<div className="cart-list">
 				{cartItems.length > 0 ? <>{cartItems.map((item) => (
 					<CartList removeItem={event => removeItem(item.id)} key={item.id} image={item.imageURL} name={item.name} price={item.price} />
 				))}</> : <CartEmpty />}

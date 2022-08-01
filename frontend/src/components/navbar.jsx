@@ -40,8 +40,8 @@ export default function Nav() {
 					<Flex alignItems={'center'}>
 						<Stack direction={'row'} spacing={7}>
 							<Link to="/cart">
-								<Button>
-									{cartItems.length > 0 ? <CartBadge data-cy='shopping-badge' items={cartItems.length} margin="ms-3" /> : ''}
+								<Button data-cy='cart-button'>
+									{cartItems.length > 0 ? <div data-cy='shopping-badge'> <CartBadge items={cartItems.length} margin="ms-3" /></div> : ''}
 									<CartIcon />
 								</Button>
 							</Link>
