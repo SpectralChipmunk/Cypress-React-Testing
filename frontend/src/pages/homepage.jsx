@@ -12,6 +12,7 @@ const HomePage = () => {
 				lineHeight='tight'
 				textAlign={'left'}
 				fontSize={'3xl'}
+				className="greeting"
 			>
 				You buy we deliver
 			</Box>
