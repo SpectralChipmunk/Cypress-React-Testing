@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('populateData', () => {
+	cy.fixture('items').then((i) => {
+		const apiEndpoint = Cypress.env('api_server')
+		// cy.intercept(method, url, staticResponse)
+		cy.intercept('GET', apiEndpoint, i).as('all-items')
+	})
+	cy.visit('/');
+	cy.wait('@all-items');
+})
