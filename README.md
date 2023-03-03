@@ -1,1 +1,1 @@
-# react_cypress_testing
+# Sample React Cypress Testing
